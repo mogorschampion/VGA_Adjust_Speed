@@ -1,0 +1,3 @@
+verilog work "vgaSync.v"
+verilog work "pixelGeneration.v"
+verilog work "VGAwithSwitch.v"

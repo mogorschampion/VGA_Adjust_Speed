@@ -1,0 +1,532 @@
+Release 13.2 - xst O.61xd (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.26 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.26 secs
+ 
+--> Reading design: VGA_Adjust_Speed.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "VGA_Adjust_Speed.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "VGA_Adjust_Speed"
+Output Format                      : NGC
+Target Device                      : xc3s100e-4-cp132
+
+---- Source Options
+Top Module Name                    : VGA_Adjust_Speed
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "vgaSync.v" in library work
+Compiling verilog file "pixelGeneration.v" in library work
+Module <vgaSync> compiled
+Compiling verilog file "VGAwithSwitch.v" in library work
+Module <pixelGeneration> compiled
+Module <VGA_Adjust_Speed> compiled
+No errors in compilation
+Analysis of file <"VGA_Adjust_Speed.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <VGA_Adjust_Speed> in library <work>.
+
+Analyzing hierarchy for module <vgaSync> in library <work> with parameters.
+	HB = "00000000000000000000000000010000"
+	HD = "00000000000000000000001010000000"
+	HF = "00000000000000000000000000110000"
+	HR = "00000000000000000000000001100000"
+	VB = "00000000000000000000000000100001"
+	VD = "00000000000000000000000111100000"
+	VF = "00000000000000000000000000001010"
+	VR = "00000000000000000000000000000010"
+
+Analyzing hierarchy for module <pixelGeneration> in library <work> with parameters.
+	MAX_X = "00000000000000000000001010000000"
+	MAX_Y = "00000000000000000000000111100000"
+	SQUARE_SIZE = "00000000000000000000000000101000"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <VGA_Adjust_Speed>.
+Module <VGA_Adjust_Speed> is correct for synthesis.
+ 
+Analyzing module <vgaSync> in library <work>.
+	HB = 32'sb00000000000000000000000000010000
+	HD = 32'sb00000000000000000000001010000000
+	HF = 32'sb00000000000000000000000000110000
+	HR = 32'sb00000000000000000000000001100000
+	VB = 32'sb00000000000000000000000000100001
+	VD = 32'sb00000000000000000000000111100000
+	VF = 32'sb00000000000000000000000000001010
+	VR = 32'sb00000000000000000000000000000010
+WARNING:Xst:916 - "vgaSync.v" line 31: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgaSync.v" line 32: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgaSync.v" line 33: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgaSync.v" line 34: Delay is ignored for synthesis.
+WARNING:Xst:916 - "vgaSync.v" line 35: Delay is ignored for synthesis.
+Module <vgaSync> is correct for synthesis.
+ 
+Analyzing module <pixelGeneration> in library <work>.
+	MAX_X = 32'sb00000000000000000000001010000000
+	MAX_Y = 32'sb00000000000000000000000111100000
+	SQUARE_SIZE = 32'sb00000000000000000000000000101000
+WARNING:Xst:916 - "pixelGeneration.v" line 43: Delay is ignored for synthesis.
+WARNING:Xst:916 - "pixelGeneration.v" line 44: Delay is ignored for synthesis.
+WARNING:Xst:916 - "pixelGeneration.v" line 45: Delay is ignored for synthesis.
+WARNING:Xst:916 - "pixelGeneration.v" line 46: Delay is ignored for synthesis.
+WARNING:Xst:916 - "pixelGeneration.v" line 47: Delay is ignored for synthesis.
+Module <pixelGeneration> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <vgaSync>.
+    Related source file is "vgaSync.v".
+    Found 10-bit up counter for signal <h_count>.
+    Found 1-bit register for signal <h_sync>.
+    Found 10-bit comparator greatequal for signal <h_syncNext$cmp_ge0000> created at line 75.
+    Found 10-bit comparator lessequal for signal <h_syncNext$cmp_le0000> created at line 75.
+    Found 1-bit register for signal <mod2>.
+    Found 10-bit up counter for signal <v_count>.
+    Found 1-bit register for signal <v_sync>.
+    Found 10-bit comparator greatequal for signal <v_syncNext$cmp_ge0000> created at line 78.
+    Found 10-bit comparator lessequal for signal <v_syncNext$cmp_le0000> created at line 78.
+    Found 11-bit comparator less for signal <video_on$cmp_lt0000> created at line 81.
+    Found 10-bit comparator less for signal <video_on$cmp_lt0001> created at line 81.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   3 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+Unit <vgaSync> synthesized.
+
+
+Synthesizing Unit <pixelGeneration>.
+    Related source file is "pixelGeneration.v".
+    Found 11-bit comparator greater for signal <direction_next$cmp_gt0000> created at line 79.
+    Found 10-bit comparator less for signal <direction_next$cmp_lt0000> created at line 82.
+    Found 1-bit register for signal <direction_reg>.
+    Found 1-bit register for signal <push_reg0>.
+    Found 1-bit register for signal <push_reg1>.
+    Found 10-bit comparator greater for signal <square_on$cmp_gt0000> created at line 71.
+    Found 10-bit comparator greater for signal <square_on$cmp_gt0001> created at line 71.
+    Found 10-bit comparator less for signal <square_on$cmp_lt0000> created at line 71.
+    Found 10-bit comparator less for signal <square_on$cmp_lt0001> created at line 71.
+    Found 10-bit comparator less for signal <square_x_next$cmp_lt0000> created at line 95.
+    Found 10-bit addsub for signal <square_x_next$share0000> created at line 92.
+    Found 10-bit register for signal <square_x_reg>.
+    Found 10-bit subtractor for signal <square_x_right>.
+    Found 10-bit adder carry out for signal <square_x_right$addsub0000> created at line 57.
+    Found 10-bit comparator greater for signal <vel_next$cmp_lt0000> created at line 88.
+    Found 10-bit addsub for signal <vel_next$share0000>.
+    Found 10-bit register for signal <vel_reg>.
+    Summary:
+	inferred  23 D-type flip-flop(s).
+	inferred   4 Adder/Subtractor(s).
+	inferred   8 Comparator(s).
+Unit <pixelGeneration> synthesized.
+
+
+Synthesizing Unit <VGA_Adjust_Speed>.
+    Related source file is "VGAwithSwitch.v".
+Unit <VGA_Adjust_Speed> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder carry out                                : 1
+ 10-bit addsub                                         : 2
+ 10-bit subtractor                                     : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 8
+ 1-bit register                                        : 6
+ 10-bit register                                       : 2
+# Comparators                                          : 14
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 5
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greater                             : 1
+ 11-bit comparator less                                : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 4
+ 10-bit adder carry out                                : 1
+ 10-bit addsub                                         : 2
+ 10-bit subtractor                                     : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 26
+ Flip-Flops                                            : 26
+# Comparators                                          : 14
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 3
+ 10-bit comparator less                                : 5
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greater                             : 1
+ 11-bit comparator less                                : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <VGA_Adjust_Speed> ...
+
+Optimizing unit <vgaSync> ...
+
+Optimizing unit <pixelGeneration> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block VGA_Adjust_Speed, actual ratio is 8.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 46
+ Flip-Flops                                            : 46
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : VGA_Adjust_Speed.ngr
+Top Level Output File Name         : VGA_Adjust_Speed
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 12
+
+Cell Usage :
+# BELS                             : 275
+#      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 20
+#      LUT2                        : 37
+#      LUT2_D                      : 1
+#      LUT3                        : 32
+#      LUT3_D                      : 1
+#      LUT3_L                      : 1
+#      LUT4                        : 35
+#      LUT4_D                      : 2
+#      LUT4_L                      : 6
+#      MUXCY                       : 80
+#      MUXF5                       : 2
+#      VCC                         : 1
+#      XORCY                       : 50
+# FlipFlops/Latches                : 46
+#      FD                          : 10
+#      FDE                         : 2
+#      FDR                         : 3
+#      FDRE                        : 29
+#      FDRS                        : 1
+#      FDSE                        : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 11
+#      IBUF                        : 6
+#      OBUF                        : 5
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s100ecp132-4 
+
+ Number of Slices:                       72  out of    960     7%  
+ Number of Slice Flip Flops:             46  out of   1920     2%  
+ Number of 4 input LUTs:                141  out of   1920     7%  
+ Number of IOs:                          12
+ Number of bonded IOBs:                  12  out of     83    14%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 46    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 6.924ns (Maximum Frequency: 144.425MHz)
+   Minimum input arrival time before clock: 5.143ns
+   Maximum output required time after clock: 13.171ns
+   Maximum combinational path delay: 6.069ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 6.924ns (frequency: 144.425MHz)
+  Total number of paths / destination ports: 1895 / 95
+-------------------------------------------------------------------------
+Delay:               6.924ns (Levels of Logic = 8)
+  Source:            pixelGeneration/square_x_reg_0 (FF)
+  Destination:       pixelGeneration/direction_reg (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: pixelGeneration/square_x_reg_0 to pixelGeneration/direction_reg
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.591   0.844  pixelGeneration/square_x_reg_0 (pixelGeneration/square_x_reg_0)
+     LUT1:I0->O            1   0.704   0.000  pixelGeneration/Msub_square_x_right_cy<0>_rt (pixelGeneration/Msub_square_x_right_cy<0>_rt)
+     MUXCY:S->O            1   0.464   0.000  pixelGeneration/Msub_square_x_right_cy<0> (pixelGeneration/Msub_square_x_right_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Msub_square_x_right_cy<1> (pixelGeneration/Msub_square_x_right_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Msub_square_x_right_cy<2> (pixelGeneration/Msub_square_x_right_cy<2>)
+     XORCY:CI->O           2   0.804   0.451  pixelGeneration/Msub_square_x_right_xor<3> (pixelGeneration/square_x_right<3>)
+     LUT4:I3->O            1   0.704   0.424  pixelGeneration/direction_next19_SW0_SW0 (N22)
+     LUT4_L:I3->LO         1   0.704   0.104  pixelGeneration/direction_next19_SW0 (N18)
+     LUT4:I3->O            1   0.704   0.000  pixelGeneration/direction_next781 (pixelGeneration/direction_next78)
+     FDRS:D                    0.308          pixelGeneration/direction_reg
+    ----------------------------------------
+    Total                      6.924ns (5.101ns logic, 1.823ns route)
+                                       (73.7% logic, 26.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 142 / 68
+-------------------------------------------------------------------------
+Offset:              5.143ns (Levels of Logic = 12)
+  Source:            push<0> (PAD)
+  Destination:       pixelGeneration/vel_reg_9 (FF)
+  Destination Clock: clk rising
+
+  Data Path: push<0> to pixelGeneration/vel_reg_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            13   1.218   1.158  push_0_IBUF (push_0_IBUF)
+     LUT2:I0->O            1   0.704   0.420  pixelGeneration/vel_next_mux00002 (pixelGeneration/vel_next_mux0000)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<0> (pixelGeneration/Maddsub_vel_next_share0000_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<1> (pixelGeneration/Maddsub_vel_next_share0000_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<2> (pixelGeneration/Maddsub_vel_next_share0000_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<3> (pixelGeneration/Maddsub_vel_next_share0000_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<4> (pixelGeneration/Maddsub_vel_next_share0000_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<5> (pixelGeneration/Maddsub_vel_next_share0000_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<6> (pixelGeneration/Maddsub_vel_next_share0000_cy<6>)
+     MUXCY:CI->O           1   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<7> (pixelGeneration/Maddsub_vel_next_share0000_cy<7>)
+     MUXCY:CI->O           0   0.059   0.000  pixelGeneration/Maddsub_vel_next_share0000_cy<8> (pixelGeneration/Maddsub_vel_next_share0000_cy<8>)
+     XORCY:CI->O           1   0.804   0.000  pixelGeneration/Maddsub_vel_next_share0000_xor<9> (pixelGeneration/vel_next_share0000<9>)
+     FDRE:D                    0.308          pixelGeneration/vel_reg_9
+    ----------------------------------------
+    Total                      5.143ns (3.565ns logic, 1.578ns route)
+                                       (69.3% logic, 30.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 560 / 5
+-------------------------------------------------------------------------
+Offset:              13.171ns (Levels of Logic = 10)
+  Source:            pixelGeneration/square_x_reg_5 (FF)
+  Destination:       rgb<2> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: pixelGeneration/square_x_reg_5 to rgb<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               8   0.591   0.932  pixelGeneration/square_x_reg_5 (pixelGeneration/square_x_reg_5)
+     LUT4:I0->O            3   0.704   0.610  pixelGeneration/Madd_square_x_right_addsub0000_cy<6>11 (pixelGeneration/Madd_square_x_right_addsub0000_cy<6>)
+     LUT2:I1->O            1   0.704   0.000  pixelGeneration/Msub_square_x_right_lut<7> (pixelGeneration/Msub_square_x_right_lut<7>)
+     MUXCY:S->O            1   0.464   0.000  pixelGeneration/Msub_square_x_right_cy<7> (pixelGeneration/Msub_square_x_right_cy<7>)
+     MUXCY:CI->O           0   0.059   0.000  pixelGeneration/Msub_square_x_right_cy<8> (pixelGeneration/Msub_square_x_right_cy<8>)
+     XORCY:CI->O           2   0.804   0.526  pixelGeneration/Msub_square_x_right_xor<9> (pixelGeneration/square_x_right<9>)
+     LUT2:I1->O            1   0.704   0.000  pixelGeneration/Mcompar_square_on_cmp_lt0000_lut<9> (pixelGeneration/Mcompar_square_on_cmp_lt0000_lut<9>)
+     MUXCY:S->O            1   0.864   0.499  pixelGeneration/Mcompar_square_on_cmp_lt0000_cy<9> (pixelGeneration/Mcompar_square_on_cmp_lt0000_cy<9>)
+     LUT4:I1->O            3   0.704   0.610  pixelGeneration/square_on101 (pixelGeneration/square_on)
+     LUT3:I1->O            1   0.704   0.420  pixelGeneration/rgb<2>1 (rgb_2_OBUF)
+     OBUF:I->O                 3.272          rgb_2_OBUF (rgb<2>)
+    ----------------------------------------
+    Total                     13.171ns (9.574ns logic, 3.597ns route)
+                                       (72.7% logic, 27.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Delay:               6.069ns (Levels of Logic = 3)
+  Source:            switch<2> (PAD)
+  Destination:       rgb<2> (PAD)
+
+  Data Path: switch<2> to rgb<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.218   0.455  switch_2_IBUF (switch_2_IBUF)
+     LUT3:I2->O            1   0.704   0.420  pixelGeneration/rgb<2>1 (rgb_2_OBUF)
+     OBUF:I->O                 3.272          rgb_2_OBUF (rgb<2>)
+    ----------------------------------------
+    Total                      6.069ns (5.194ns logic, 0.875ns route)
+                                       (85.6% logic, 14.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 11.00 secs
+Total CPU time to Xst completion: 11.75 secs
+ 
+--> 
+
+Total memory usage is 238064 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

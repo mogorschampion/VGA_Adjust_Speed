@@ -1,0 +1,17 @@
+
+# PlanAhead Generated physical constraints 
+
+NET "clk" LOC = B8;
+NET "hsync" LOC = J14;
+NET "vsync" LOC = K13;
+NET "rgb[0]" LOC = D13;
+NET "rgb[1]" LOC = G13;
+NET "rgb[2]" LOC = H13;
+NET "rst" LOC = N3;
+NET "switch[0]" LOC = P11;
+NET "switch[1]" LOC = L3;
+NET "switch[2]" LOC = K3;
+//NET "push[3]" LOC = A7;
+//NET "push[2]" LOC = M4;
+NET "push[1]" LOC = C11;
+NET "push[0]" LOC = G12;
